@@ -29,10 +29,6 @@ export function activate(context: vscode.ExtensionContext) {
   const clientOptions: LanguageClientOptions = {
     // Register the server for markdown documents
     documentSelector: [{ scheme: 'file', language: 'markdown' }],
-    synchronize: {
-      // Notify the server about file changes
-      fileEvents: vscode.workspace.createFileSystemWatcher('**/*.md')
-    },
     // Add middleware to track active markdown documents
     middleware: {
       didOpen: (document, next) => {

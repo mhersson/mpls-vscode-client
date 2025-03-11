@@ -2,17 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A VSCode extension for the [Markdown Preview Language Server (MPLS)](https://github.com/mhersson/mpls).
-
-## Disclaimer
-
-This extension was created by me playing with Claude, an AI assistant developed
-by Anthropic, for 30 minutes. The code, documentation, and project structure
-were created through a collaborative conversation. As someone who is not a
-JavaScript developer and never intends to be one, I've happily delegated the
-implementation to Claude while I maintain this repository. Full credit for
-turning my requests into functional code goes to Claude, while I'll take credit
-for asking the right questions and nodding thoughtfully at the responses.
+A VSCode extension for the
+[Markdown Preview Language Server (MPLS)](https://github.com/mhersson/mpls).
 
 ## Features
 
@@ -32,30 +23,30 @@ for asking the right questions and nodding thoughtfully at the responses.
 
 1. Clone the repository
 
-    ```bash
-    git clone https://github.com/mhersson/mpls-vscode-client.git
-    cd mpls-vscode-client
-    ```
+   ```bash
+   git clone https://github.com/mhersson/mpls-vscode-client.git
+   cd mpls-vscode-client
+   ```
 
 2. Install dependencies and build
 
-    ```bash
-    npm install
-    npm run compile
-    ```
+   ```bash
+   npm install
+   npm run compile
+   ```
 
 3. Create and install the VSIX package
 
-    ```bash
-    npm install -g @vscode/vsce
-    vsce package
-    code --install-extension mpls-vscode-client-0.1.0.vsix
-    ```
+   ```bash
+   npm install -g @vscode/vsce
+   vsce package
+   code --install-extension mpls-vscode-client-0.1.0.vsix
+   ```
 
    or copy the directory to your VS Code extensions folder
 
-    - Windows: `%USERPROFILE%\.vscode\extensions`
-    - macOS/Linux: `~/.vscode/extensions`
+   - Windows: `%USERPROFILE%\.vscode\extensions`
+   - macOS/Linux: `~/.vscode/extensions`
 
 4. Restart VS Code
 
