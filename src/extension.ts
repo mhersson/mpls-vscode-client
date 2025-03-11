@@ -13,12 +13,13 @@ export function activate(context: vscode.ExtensionContext) {
   // Get the configuration
   const config = vscode.workspace.getConfiguration('mpls');
   const executablePath = config.get<string>('executablePath') || 'mpls';
+  const optionalArguments = config.get<string[]>('optionalArguments') || ['--no-auto', '--enable-emoji', '--enable-footnotes'];
   const shutdownWhenAllClosed = config.get<boolean>('shutdownWhenAllClosed') !== false; // Default to true
 
   // Define server options
   const serverOptions: ServerOptions = {
     command: executablePath,
-    args: ['--no-auto', '--enable-emoji', '--enable-footnotes'],
+    args: optionalArguments,
     options: {
       shell: true
     }

@@ -64,9 +64,9 @@ for asking the right questions and nodding thoughtfully at the responses.
 1. Open any Markdown file in VSCode
 2. The MPLS server will start automatically
 3. To open the preview, use one of these methods:
-   - Right-click in the editor and select "MPLS: Open Markdown Preview"
+   - Right-click in the editor and select "MPLS: Open Preview"
    - Click the preview button in the editor title area
-   - Open the command palette (Ctrl+Shift+P) and run "MPLS: Open Markdown Preview"
+   - Open the command palette (Ctrl+Shift+P) and run "MPLS: Open Preview"
 
 The server will automatically shut down when all Markdown files are closed and
 restart when needed.
@@ -78,6 +78,9 @@ You can customize the extension behavior in VS Code settings:
 ```json
 // Path to the MPLS executable (if not in PATH)
 "mpls.executablePath": "/path/to/your/mpls",
+
+// Command arguments passed to mpls at startup
+"mpls.optionalArguments": ["--no-auto", "--enable-emoji", "--enable-footnotes"]
 
 // Whether to shut down the server when all Markdown files are closed
 "mpls.shutdownWhenAllClosed": true

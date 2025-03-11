@@ -48,7 +48,15 @@
         "mpls.executablePath": {
           "type": "string",
           "default": "mpls",
-          "description": "Path to the Markdown LSP executable"
+          "description": "Path to the MPLS executable"
+        },
+        "mpls.optionalArguments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": ["--no-auto", "--enable-emoji", "--enable-footnotes"],
+          "description": "Arguments to pass to the MPLS executable"
         },
         "mpls.shutdownWhenAllClosed": {
           "type": "boolean",
