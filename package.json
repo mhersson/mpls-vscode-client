@@ -1,0 +1,75 @@
+{
+  "name": "mpls-vscode-client",
+  "displayName": "MPLS - Markdown Preview Language Server",
+  "description": "VSCode extension for MPLS (Markdown Preview Language Server)",
+  "publisher": "mhersson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhersson/mpls-vscode-client.git"
+  },
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mpls.openPreview",
+        "title": "MPLS: Open Preview"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorLangId == markdown",
+          "command": "mpls.openPreview",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "editorLangId == markdown",
+          "command": "mpls.openPreview",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "MPLS",
+      "properties": {
+        "mpls.executablePath": {
+          "type": "string",
+          "default": "mpls",
+          "description": "Path to the Markdown LSP executable"
+        },
+        "mpls.shutdownWhenAllClosed": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shut down the MPLS server when all Markdown files are closed"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.93.0",
+    "typescript": "^4.5.5"
+  }
+}
