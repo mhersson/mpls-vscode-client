@@ -77,6 +77,19 @@ export function activate(context: vscode.ExtensionContext) {
   // Start the client when a markdown document is opened
   if (vscode.workspace.textDocuments.some(doc => doc.languageId === 'markdown')) {
     startClient();
+
+    // If there's already a markdown file open in the editor, send initial focus notification
+    const activeEditor = vscode.window.activeTextEditor;
+    if (activeEditor && activeEditor.document.languageId === 'markdown' && client) {
+      // Small delay to ensure client is fully initialized
+      setTimeout(() => {
+        client?.sendNotification('mpls/editorDidChangeFocus', {
+          uri: activeEditor.document.uri.toString(),
+          fileName: activeEditor.document.fileName
+        });
+        console.log('Sent initial focus notification for', activeEditor.document.fileName);
+      }, 1000);
+    }
   }
 
   // Set up a listener to start the client when a markdown document is opened
@@ -86,6 +99,19 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
   context.subscriptions.push(docOpenListener);
+
+  // Track editor focus changes to notify the language server
+  const editorChangeListener = vscode.window.onDidChangeActiveTextEditor(editor => {
+    if (editor && editor.document.languageId === 'markdown' && client) {
+      // Send a custom notification to the language server with the current document URI
+      client.sendNotification('mpls/editorDidChangeFocus', {
+        uri: editor.document.uri.toString(),
+        fileName: editor.document.fileName
+      });
+      console.log('Sent focus change notification for', editor.document.fileName);
+    }
+  });
+  context.subscriptions.push(editorChangeListener);
 
   // Register the "Open Preview" command
   const openPreviewCommand = vscode.commands.registerCommand('mpls.openPreview', async () => {
