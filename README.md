@@ -13,6 +13,8 @@ A VSCode extension for the
 - **Open Preview Command**: Adds a command to open the Markdown preview
 - **Smart Server Management**: Automatically shuts down the server when no
   Markdown files are open, and restarts it when needed
+- **Focus Tracking**: Notifies the language server when you switch between
+  Markdown files
 
 ## Prerequisites
 
