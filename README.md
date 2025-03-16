@@ -55,7 +55,6 @@ A VSCode extension for the
 1. Open any Markdown file in VSCode
 2. The MPLS server will start automatically
 3. To open the preview, use one of these methods:
-   - Right-click in the editor and select "MPLS: Open Preview"
    - Click the preview button in the editor title area
    - Open the command palette (Ctrl+Shift+P) and run "MPLS: Open Preview"
 

@@ -12,7 +12,7 @@
     "vscode": "^1.93.0"
   },
   "categories": [
-    "Programming Languages"
+    "Other"
   ],
   "activationEvents": [
     "onLanguage:markdown"
@@ -26,13 +26,6 @@
       }
     ],
     "menus": {
-      "editor/context": [
-        {
-          "when": "editorLangId == markdown",
-          "command": "mpls.openPreview",
-          "group": "navigation"
-        }
-      ],
       "editor/title": [
         {
           "when": "editorLangId == markdown",
